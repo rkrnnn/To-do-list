@@ -33,13 +33,13 @@ function getIndexofBtn(btnRef,childNr,list) {
 
 function editTaskOKCall(btnRef) {
     var divRef = btnRef.parentElement;
-    var index = getIndexofBtn(divRef, 4, list);
-    var editTaskInput = list.childNodes[index].firstChild.lastChild.firstChild;
+    var index = getIndexofBtn(divRef, 1, list);
+    var editTaskInput = list.childNodes[index].firstChild.childNodes[1].firstChild;
     
     console.log('You want to edit this task. Current task: ' + listArr[index]);
     editTask(editTaskInput.value, index);
     
-    list.childNodes[index].firstChild.childNodes[3].innerText = listArr[index];
+    list.childNodes[index].firstChild.childNodes[0].innerText = listArr[index];
     
     closeEditTaskCall(index);
 }
@@ -47,24 +47,24 @@ function editTaskOKCall(btnRef) {
 
 function cancelEditTaskCall(btnRef) {
     var divRef = btnRef.parentElement;
-    var index = getIndexofBtn(divRef, 4, list);
+    var index = getIndexofBtn(divRef, 1, list);
 
     closeEditTaskCall(index);
 }
 
 
 function openEditTaskCall(index) {
-    list.childNodes[index].firstChild.lastChild.style.display = "";
-    list.childNodes[index].firstChild.childNodes[3].style.display = "none";
-    list.childNodes[index].firstChild.childNodes[0].className = "btn btn-outline-info btn-sm btn-edit disabled";
+    list.childNodes[index].firstChild.childNodes[1].style.display = "";
+    list.childNodes[index].firstChild.childNodes[0].style.display = "none";
+    list.childNodes[index].firstChild.childNodes[2].className = "btn btn-outline-info btn-sm btn-edit disabled";
 }
 
 
 function closeEditTaskCall(index) {
-    list.childNodes[index].firstChild.lastChild.style.display = "none";
-    list.childNodes[index].firstChild.childNodes[3].style.display = "";
-    list.childNodes[index].firstChild.childNodes[0].className = "btn btn-outline-info btn-sm btn-edit";
-    list.childNodes[index].firstChild.lastChild.firstChild.value = listArr[index];
+    list.childNodes[index].firstChild.childNodes[1].style.display = "none";
+    list.childNodes[index].firstChild.childNodes[0].style.display = "";
+    list.childNodes[index].firstChild.childNodes[2].className = "btn btn-outline-info btn-sm btn-edit";
+    list.childNodes[index].firstChild.firstChild.value = listArr[index];
 }
 
 
@@ -75,13 +75,13 @@ function closeEditTaskCall(index) {
 
 function editDoneTaskOKCall(btnRef) {
     var divRef = btnRef.parentElement;
-    var index = getIndexofBtn(divRef, 3, listDone);
-    var editTaskInput = listDone.childNodes[index].firstChild.lastChild.firstChild;
+    var index = getIndexofBtn(divRef, 1, listDone);
+    var editTaskInput = listDone.childNodes[index].firstChild.childNodes[1].firstChild;
     
     console.log('You want to edit this task. Current task: ' + listArrDone[index]);
     editDoneTask(editTaskInput.value, index);
     
-    listDone.childNodes[index].firstChild.childNodes[2].innerText = listArrDone[index];
+    listDone.childNodes[index].firstChild.childNodes[0].innerText = listArrDone[index];
     
     closeEditDoneTaskCall(index);
 }
@@ -89,24 +89,24 @@ function editDoneTaskOKCall(btnRef) {
 
 function cancelEditDoneTaskCall(btnRef) {
     var divRef = btnRef.parentElement;
-    var index = getIndexofBtn(divRef, 3, listDone);
+    var index = getIndexofBtn(divRef, 1, listDone);
 
     closeEditDoneTaskCall(index);
 }
 
 
 function openEditDoneTaskCall(index) {
-    listDone.childNodes[index].firstChild.lastChild.style.display = "";
-    listDone.childNodes[index].firstChild.childNodes[2].style.display = "none";
-    listDone.childNodes[index].firstChild.childNodes[0].className = "btn btn-outline-info btn-sm btn-edit disabled";
+    listDone.childNodes[index].firstChild.childNodes[1].style.display = "";
+    listDone.childNodes[index].firstChild.childNodes[0].style.display = "none";
+    listDone.childNodes[index].firstChild.childNodes[2].className = "btn btn-outline-info btn-sm btn-edit disabled";
 }
 
 
 function closeEditDoneTaskCall(index) {
-    listDone.childNodes[index].firstChild.lastChild.style.display = "none";
-    listDone.childNodes[index].firstChild.childNodes[2].style.display = "";
-    listDone.childNodes[index].firstChild.childNodes[0].className = "btn btn-outline-info btn-sm btn-edit";
-    listDone.childNodes[index].firstChild.lastChild.firstChild.value = listArrDone[index];
+    listDone.childNodes[index].firstChild.childNodes[1].style.display = "none";
+    listDone.childNodes[index].firstChild.childNodes[0].style.display = "";
+    listDone.childNodes[index].firstChild.childNodes[2].className = "btn btn-outline-info btn-sm btn-edit";
+    listDone.childNodes[index].firstChild.firstChild.value = listArrDone[index];
 }
 
 ////////////////////////////////////////////////////////////////
@@ -114,7 +114,7 @@ function closeEditDoneTaskCall(index) {
 ////////////////////////////////////////////////////////////////
 
 function editTaskCall(btnRef) {
-    var index = getIndexofBtn(btnRef, 0, list);
+    var index = getIndexofBtn(btnRef, 2, list);
 
     openEditTaskCall(index);
 
@@ -123,19 +123,20 @@ function editTaskCall(btnRef) {
 
 
 function completeTaskCall(btnRef) {
-    var index = getIndexofBtn(btnRef, 1, list);
+    var index = getIndexofBtn(btnRef, 3, list);
 
     markTaskAsComplete(index);
     
     redrawListDone();
     redrawList();
+    evaluateListsStatus();
     
     console.log('task completed!!!');
 }
 
 
 function deleteTaskCall(btnRef) {
-    var index = getIndexofBtn(btnRef, 2, list);
+    var index = getIndexofBtn(btnRef, 4, list);
 
     deleteTask(index);
     
@@ -144,7 +145,7 @@ function deleteTaskCall(btnRef) {
 
 
 function editDoneTaskCall(btnRef) {
-    var index = getIndexofBtn(btnRef, 0, listDone);
+    var index = getIndexofBtn(btnRef, 2, listDone);
 
     openEditDoneTaskCall(index);
 
@@ -153,7 +154,7 @@ function editDoneTaskCall(btnRef) {
 
 
 function deleteDoneTaskCall(btnRef) {
-    var index = getIndexofBtn(btnRef, 1, listDone);
+    var index = getIndexofBtn(btnRef, 3, listDone);
 
     deleteDoneTask(index);
     
@@ -182,20 +183,32 @@ function evaluateListsStatus() {
     if ((listArr.length == 0) && (listArrDone.length !== 0)) {
         allTasksDoneMsg.style.display = '';
         noTasksMsg.style.display = 'none';
+        list.parentElement.parentElement.style.border = "1px solid #28a74559";
+    }
+    else {
+        allTasksDoneMsg.style.display = 'none';
+        noTasksMsg.style.display = 'none';
+        list.parentElement.parentElement.style.border = "1px solid #dc354549";
     }
 
     // No tasks added
     if ((listArr.length == 0) && (listArrDone.length == 0)) {
         allTasksDoneMsg.style.display = 'none';
         noTasksMsg.style.display = '';
+        list.parentElement.parentElement.style.border = "1px solid #b6effb";
     }
+    // else {
+    //     list.parentElement.parentElement.style.border = "1px solid #dc354549";
+    // }
 
     // No done tasks
     if (!listArrDone.length){
         noTasksMsgDone.style.display = '';
+        listDone.parentElement.parentElement.style.border = "1px solid #ffecb5";
     }
     else {
         noTasksMsgDone.style.display = 'none';
+        listDone.parentElement.parentElement.style.border = "1px solid #28a74559";
     }
 }
 
@@ -257,8 +270,7 @@ function redrawList() {
         ////////Edit Task component structure creation////// 
 
         var editTaskComponent = document.createElement("DIV");
-        editTaskComponent.className = "input-group";
-        editTaskComponent.style.marginTop = "0px";
+        editTaskComponent.className = "input-group edit-task-comp";
         editTaskComponent.style.display = "none";
 
         var editTaskField = document.createElement("INPUT");
@@ -297,14 +309,14 @@ function redrawList() {
         
         var textNode = document.createTextNode(array[i]);
         var taskTextSpan = document.createElement("SPAN");
-        taskTextSpan.style.marginLeft = "5px";
+        taskTextSpan.className = "task-text";
         taskTextSpan.appendChild(textNode);
 
+        newItemDiv.appendChild(taskTextSpan);
+        newItemDiv.appendChild(editTaskComponent);
         newItemDiv.appendChild(editTaskBtn);
         newItemDiv.appendChild(finishedTaskBtn);
         newItemDiv.appendChild(deleteTaskBtn);
-        newItemDiv.appendChild(taskTextSpan);
-        newItemDiv.appendChild(editTaskComponent);
 
         i++;
     }
@@ -347,8 +359,7 @@ function redrawListDone() {
         ////////Edit Task component structure creation////// 
 
         var editTaskComponent = document.createElement("DIV");
-        editTaskComponent.className = "input-group";
-        editTaskComponent.style.marginTop = "0px";
+        editTaskComponent.className = "input-group edit-task-comp";
         editTaskComponent.style.display = "none";
 
         var editTaskField = document.createElement("INPUT");
@@ -386,13 +397,13 @@ function redrawListDone() {
         
         var textNode = document.createTextNode(array[i]);
         var taskTextSpan = document.createElement("SPAN");
-        taskTextSpan.style.marginLeft = "5px";
+        taskTextSpan.className = "task-text";
         taskTextSpan.appendChild(textNode);
 
-        newItemDiv.appendChild(editTaskBtn);
-        newItemDiv.appendChild(deleteTaskBtn);
         newItemDiv.appendChild(taskTextSpan);
         newItemDiv.appendChild(editTaskComponent);
+        newItemDiv.appendChild(editTaskBtn);
+        newItemDiv.appendChild(deleteTaskBtn);
 
         i++;
     }
