@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="container mt20">
+        <div class="title">
+            <h1>To Do List...</h1>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" id="inp-add"><br>
+            <button class="btn btn-outline-secondary" onclick="newTask()">Add to my to do list</button>
+            <button class="btn btn-outline-secondary" onclick="clearListView()">Clear list</button>
+        </div>
+        <div class="display-to-do-tasks border border-info">
+            <div class="subtitle">
+                <h3>
+                    My tasks
+                </h3>
+                <span>(<span class="active-tasks-nr">0</span> tasks to do!)</span>
+            </div>
+            <div>
+                <div class="no-tasks-msg alert alert-info">
+                    No tasks added yet.
+                </div>
+                <div class="done-list-all-done-msg alert alert-success" style="display: none;">
+                    Good job! All done.
+                </div>
+                <ol class="list-tasks" id="list-tasks">
+                </ol>
+            </div>
+        </div>
+        <div class="display-done-tasks border border-warning">
+            <div class="subtitle">
+                <h3>
+                    My completed tasks
+                </h3>
+                <span>(<span class="done-tasks-nr">0</span> out of <span class="total-tasks-nr">0</span> done!)</span>
+            </div>
+            <div>
+                <div class="done-list-no-tasks-msg alert alert-warning">
+                    No tasks completed yet.
+                </div>
+                <ol class="list-done-tasks" id="list-done-tasks">
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <script src="todolist.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+</body>
+</html>

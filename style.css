@@ -1,0 +1,63 @@
+div {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.new-item-div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.title {
+    font-weight: 400;
+}
+
+.subtitle {
+    font-weight: 400;
+}
+
+.btn-edit {
+    width: 40px;  
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-edit:hover {
+    color: white;
+}
+
+.btn-done {
+    width: 40px;  
+    height: 40px;
+    align-items: center;
+    justify-content: center; 
+    color: #28a745; 
+    border-color: #28a745;
+}
+
+.btn-done:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-delete {
+    width: 40px;  
+    height: 40px;
+    align-items: center;
+    justify-content: center;  
+}
+
+
+.display-to-do-tasks {
+    min-height: 200px;
+}
+
+li {
+    padding: 5px;
+}
