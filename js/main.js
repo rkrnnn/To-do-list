@@ -25,6 +25,15 @@ function getIndexofBtn(btnRef,childNr,list) {
     return index;
 }
 
+// Add new task on enter in main input field
+document.getElementById("inp-add")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("add-new-task-btn").click();
+    }
+});
+
 
 ////////////////////////////////////////////////////////////////
 //////////  Edit Task components functions
@@ -183,19 +192,19 @@ function evaluateListsStatus() {
     if ((listArr.length == 0) && (listArrDone.length !== 0)) {
         allTasksDoneMsg.style.display = '';
         noTasksMsg.style.display = 'none';
-        list.parentElement.parentElement.style.border = "1px solid #28a74559";
+        list.parentElement.parentElement.style.border = "2px solid #28a74559";
     }
     else {
         allTasksDoneMsg.style.display = 'none';
         noTasksMsg.style.display = 'none';
-        list.parentElement.parentElement.style.border = "1px solid #dc354549";
+        list.parentElement.parentElement.style.border = "2px solid #dc354549";
     }
 
     // No tasks added
     if ((listArr.length == 0) && (listArrDone.length == 0)) {
         allTasksDoneMsg.style.display = 'none';
         noTasksMsg.style.display = '';
-        list.parentElement.parentElement.style.border = "1px solid #b6effb";
+        list.parentElement.parentElement.style.border = "2px solid #b6effb";
     }
     // else {
     //     list.parentElement.parentElement.style.border = "1px solid #dc354549";
@@ -204,11 +213,11 @@ function evaluateListsStatus() {
     // No done tasks
     if (!listArrDone.length){
         noTasksMsgDone.style.display = '';
-        listDone.parentElement.parentElement.style.border = "1px solid #ffecb5";
+        listDone.parentElement.parentElement.style.border = "2px solid #ffdd7a";
     }
     else {
         noTasksMsgDone.style.display = 'none';
-        listDone.parentElement.parentElement.style.border = "1px solid #28a74559";
+        listDone.parentElement.parentElement.style.border = "2px solid #28a74559";
     }
 }
 
@@ -276,6 +285,12 @@ function redrawList() {
         var editTaskField = document.createElement("INPUT");
         editTaskField.value = array[i];
         editTaskField.className = "form-control";
+        editTaskField.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                editTaskOKCall(event.target);
+            }
+            });
 
         var editTaskBtnOK = document.createElement("BUTTON");
         var textEditTaskBtnOK = document.createTextNode('OK');
@@ -284,6 +299,7 @@ function redrawList() {
         editTaskBtnOK.addEventListener("click", function(event){
             editTaskOKCall(event.target)
             });
+        
 
         var editTaskBtnCancel = document.createElement("BUTTON");
         var textEditTaskBtnCancel = document.createTextNode('Cancel');
@@ -365,6 +381,12 @@ function redrawListDone() {
         var editTaskField = document.createElement("INPUT");
         editTaskField.value = array[i];
         editTaskField.className = "form-control";
+        editTaskField.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                editDoneTaskOKCall(event.target);
+            }
+            });
 
         var editTaskBtnOK = document.createElement("BUTTON");
         var textEditTaskBtnOK = document.createTextNode('OK');
