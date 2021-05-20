@@ -178,22 +178,24 @@ function newTask() {
 
 /// Updates empty list messages
 function evaluateListsStatus() {
-    if ((listArrDone.length == (listArrDone.length + listArr.length)) && (listArrDone.length !== 0)) {
+    // All tasks done
+    if ((listArr.length == 0) && (listArrDone.length !== 0)) {
         allTasksDoneMsg.style.display = '';
-    }
-    else {
-        allTasksDoneMsg.style.display = 'none';
+        noTasksMsg.style.display = 'none';
     }
 
+    // No tasks added
+    if ((listArr.length == 0) && (listArrDone.length == 0)) {
+        allTasksDoneMsg.style.display = 'none';
+        noTasksMsg.style.display = '';
+    }
+
+    // No done tasks
     if (!listArrDone.length){
         noTasksMsgDone.style.display = '';
     }
     else {
         noTasksMsgDone.style.display = 'none';
-    }
-
-    if (!listArr.length){
-        noTasksMsg.style.display = '';
     }
 }
 
