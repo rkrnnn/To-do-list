@@ -132,7 +132,7 @@ function editTaskCall(btnRef) {
 
 
 function completeTaskCall(btnRef) {
-    var index = getIndexofBtn(btnRef, 3, list);
+    var index = getIndexofBtn(btnRef, 4, list);
 
     markTaskAsComplete(index);
     
@@ -145,7 +145,7 @@ function completeTaskCall(btnRef) {
 
 
 function deleteTaskCall(btnRef) {
-    var index = getIndexofBtn(btnRef, 4, list);
+    var index = getIndexofBtn(btnRef, 3, list);
 
     deleteTask(index);
     
@@ -331,8 +331,8 @@ function redrawList() {
         newItemDiv.appendChild(taskTextSpan);
         newItemDiv.appendChild(editTaskComponent);
         newItemDiv.appendChild(editTaskBtn);
-        newItemDiv.appendChild(finishedTaskBtn);
         newItemDiv.appendChild(deleteTaskBtn);
+        newItemDiv.appendChild(finishedTaskBtn);
 
         i++;
     }
