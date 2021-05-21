@@ -1,11 +1,23 @@
 .background {
-    background-color: #85377a;
+    background-color: #EEEDDD;
     height: 250px;
     width: 100%;
 }
 
+.body-container {
+    background-color: white;
+}
+
 div.container {
     position: relative;
+}
+
+.container > .input-group {
+    border-radius: 6px;
+    max-width: -webkit-fill-available;
+    border: 1px solid #4f86c0;
+    background-color: #4f86c0;
+    margin-bottom: 20px;
 }
 
 div {
@@ -14,8 +26,8 @@ div {
 }
 
 .title {
-    font-family: 'Pacifico', cursive;
-    color: white;
+    font-family: 'Fredoka One', cursive;
+    color: #4f86c0;
 }
 
 .list-tasks, .list-done-tasks {
@@ -25,17 +37,17 @@ div {
 }
 
 .display-to-do-tasks {
-    border: 2px solid #b6effb;
+    border: 1px solid #a5a5a5;
     background-color: #fbfbfb;
-    border-radius: 3px;
+    border-radius: 6px;
 }
 
 
 .display-done-tasks {
     margin-top: 9px;
-    border: 2px solid #ffdd7a;
+    border: 1px solid #a5a5a5;
     background-color: #fbfbfb;
-    border-radius: 3px;
+    border-radius: 6px;
 }
 
 
@@ -46,7 +58,7 @@ div {
     position: relative;
     margin: 0px;
     border: 1px solid #d9d9d9;
-    border-left: 5px solid #dc3545;
+    border-left: 5px solid #d6424f;
     border-radius: 3px;
     background-color: white;
     padding: 12px;
@@ -54,7 +66,25 @@ div {
 }
 
 .list-done-tasks .new-item-div {
-    border-left: 5px solid #28a745;
+    border-left: 5px solid #4f997e;
+}
+
+.done-list-all-done-msg {
+    background-color: #9bcab92c;
+    border-color: #4f997e69;
+    color: #4f997e;
+}
+
+.no-tasks-msg {
+    background-color: #3f93c317;
+    border-color: #2383bb71;
+    color: #2383bb;
+}
+
+.done-list-no-tasks-msg {
+    background-color: #eeeddd2b;
+    border-color: #c7b9a8d3;
+    color: #886438;
 }
 
 .edit-task-comp {
@@ -74,8 +104,27 @@ div {
     font-weight: 400;
 }
 
-.subtitle {
-    font-weight: 400;
+.subtitle h3 {
+    font-family: 'Fredoka One', cursive;
+    font-weight: 200;
+    font-size: 18pt;
+}
+
+.input-group .btn {
+    background-color: #edf5fa;
+    border: 1px solid #4f86c0;
+    color: #2383bb;
+}
+
+.input-group .btn:hover {
+    background-color: #4f86c0;
+    border: 1px solid #4f86c0;
+    
+    color: white;
+}
+
+.input-group input {
+    border:1px solid #4f86c0;
 }
 
 .btn-edit {
@@ -84,13 +133,18 @@ div {
     height: 40px;
     align-items: center;
     justify-content: flex-end;
+    font-weight: 600;
     margin: 3px;
     margin-left: auto;
     border-radius: 50%;
+    border: none;
+    background-color: #3f93c317;
+    color: #2383bb;
 }
 
 .btn-edit:hover {
     color: white;
+    background-color: #2383bb;
 }
 
 .btn-done {
@@ -102,17 +156,16 @@ div {
     position: relative;
     top: -16px;
     right: -16px;
-    color: #28a745; 
-    border-color: #28a745;
-    background-color: #28a74638;
+    color: #fff;
+    background-color: #9BCAB9;
+    border-color: #9BCAB9;
     margin: 3px;
     border-bottom-left-radius: 100%;
 }
 
 .btn-done:hover {
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
+    border-color: #4f997e;
+    background-color: #4f997e;
 }
 
 .btn-delete {
@@ -120,11 +173,18 @@ div {
     min-width: 40px;
     height: 40px;
     align-items: center;
-    justify-content: center;  
+    justify-content: center; 
+    font-weight: 600; 
     margin: 3px;
     border-radius: 50%;
+    border: none;
+    background-color: #e44e5a17;
+    color: #d6424f;
 }
 
+.btn-delete:hover {
+    background-color: #d6424f;
+}
 
 .display-to-do-tasks {
     min-height: 200px;

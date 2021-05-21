@@ -192,19 +192,19 @@ function evaluateListsStatus() {
     if ((listArr.length == 0) && (listArrDone.length !== 0)) {
         allTasksDoneMsg.style.display = '';
         noTasksMsg.style.display = 'none';
-        list.parentElement.parentElement.style.border = "2px solid #28a74559";
+        // list.parentElement.parentElement.style.border = "2px solid #28a74559";
     }
     else {
         allTasksDoneMsg.style.display = 'none';
         noTasksMsg.style.display = 'none';
-        list.parentElement.parentElement.style.border = "2px solid #dc354549";
+        // list.parentElement.parentElement.style.border = "2px solid #dc354549";
     }
 
     // No tasks added
     if ((listArr.length == 0) && (listArrDone.length == 0)) {
         allTasksDoneMsg.style.display = 'none';
         noTasksMsg.style.display = '';
-        list.parentElement.parentElement.style.border = "2px solid #b6effb";
+        // list.parentElement.parentElement.style.border = "2px solid #b6effb";
     }
     // else {
     //     list.parentElement.parentElement.style.border = "1px solid #dc354549";
@@ -213,11 +213,11 @@ function evaluateListsStatus() {
     // No done tasks
     if (!listArrDone.length){
         noTasksMsgDone.style.display = '';
-        listDone.parentElement.parentElement.style.border = "2px solid #ffdd7a";
+        // listDone.parentElement.parentElement.style.border = "2px solid #ffdd7a";
     }
     else {
         noTasksMsgDone.style.display = 'none';
-        listDone.parentElement.parentElement.style.border = "2px solid #28a74559";
+        // listDone.parentElement.parentElement.style.border = "2px solid #28a74559";
     }
 }
 
